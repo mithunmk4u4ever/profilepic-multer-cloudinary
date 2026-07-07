@@ -4,13 +4,16 @@ const connectDB=require("./config/db")
 require("dotenv").config()
 const userRoutes=require("./routes/userRoutes")
 
-const port=5550 || process.env.PORT
+const port = process.env.PORT || 5550
 
-const app=express()
+const app = express()
 
 connectDB()
 
-app.use(cors())
+app.use(cors({
+    origin: process.env.FRONTEND_URL || "*",
+    credentials: true,
+}))
 app.use(express.json())
 
 app.use("/api/users",userRoutes)
