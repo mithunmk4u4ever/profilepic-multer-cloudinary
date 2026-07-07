@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 // const API_URL = "http://localhost:5550/api/users";
-const API_URL="profilepic-multer-cloudinary.vercel.app"
+const API_URL=process.env.API_URL
 const getStoredAuth = () => {
     const accessToken = localStorage.getItem("accessToken");
     const refreshToken = localStorage.getItem("refreshToken");
